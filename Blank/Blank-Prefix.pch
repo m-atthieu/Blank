@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Blank' target in the 'Blank' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
