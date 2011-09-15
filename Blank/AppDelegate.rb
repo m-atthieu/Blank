@@ -6,10 +6,18 @@
 #  Copyright 2011 __MyCompanyName__. All rights reserved.
 #
 
+require 'find'
+
 class AppDelegate
-    attr_accessor :window
+    attr_accessor :window, :base, :docs
+    
+    def initialize
+        @docs = "/Volumes/Users/furai/Documents/HoudaGeo"
+        @base = "/Volumes/Users/furai/Powo"
+    end
+    
     def applicationDidFinishLaunching(a_notification)
-        # Insert code here to initialize your application
+        f = FileColorSetter.new "/Volumes/Users/furai/Documents/HoudaGeo/2004-11.hgeo"
     end
 end
 
