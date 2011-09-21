@@ -49,11 +49,15 @@ class HGeo
                 conn = SQLite3::Database.new hgeo
                 all = conn.get_first_value(sql_all)
                 geo = conn.get_first_value(sql_geo)
-                p "#{hgeo} all : #{all}, geo : #{geo}"
-                if geo == 0 then
+                print "#{File.basename(hgeo)};#{geo};#{all}\n"
+                #p "#{hgeo} all : #{all}, geo : #{geo}"
+                ratio = geo / all.to_f
+                if ratio == 0 then
                     setFileColorLabel hgeo, 'red'
-                elsif geo < all then
+                elsif ratio < 0.5 then
                     setFileColorLabel hgeo, 'orange'
+                elsif ratio < 1 then
+                    setFileColorLabel hgeo, 'yellow'
                 elsif geo == all then
                     setFileColorLabel hgeo, 'green'
                 end
